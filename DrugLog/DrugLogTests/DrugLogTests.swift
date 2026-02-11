@@ -65,7 +65,13 @@ class DrugLogTests: XCTestCase {
         )
         
         store.add(entry)
-        XCTAssertNil(entry.lastTaken)
+        
+        // Verify the entry was added and initially has no lastTaken value
+        guard let addedEntry = store.entries.first(where: { $0.id == entry.id }) else {
+            XCTFail("Entry not found after adding")
+            return
+        }
+        XCTAssertNil(addedEntry.lastTaken)
         
         store.markAsTaken(entry)
         
