@@ -21,6 +21,16 @@
 		AssetsBuildFile /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		FrameworksBuildPhase = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DrugLogApp.app /* DrugLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrugLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DrugLogApp.swift /* DrugLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugLogApp.swift; sourceTree = "<group>"; };
@@ -107,6 +117,7 @@
 			buildConfigurationList = DrugLogConfigList;
 			buildPhases = (
 				SourcesBuildPhase,
+				FrameworksBuildPhase,
 				ResourcesBuildPhase,
 			);
 			buildRules = (
