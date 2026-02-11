@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DrugEntry: Identifiable, Codable {
+struct DrugEntry: Identifiable, Codable, Equatable {
     let id: UUID
     var name: String
     var dosage: String

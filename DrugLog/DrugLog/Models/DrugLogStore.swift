@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 class DrugLogStore: ObservableObject {
     @Published var entries: [DrugEntry] = []
@@ -44,7 +45,7 @@ class DrugLogStore: ObservableObject {
             let data = try JSONEncoder().encode(entries)
             try data.write(to: savePath, options: [.atomicWrite, .completeFileProtection])
         } catch {
-            print("Failed to save drug log: \(error.localizedDescription)")
+            os_log("Failed to save drug log: %{public}@", log: .default, type: .error, error.localizedDescription)
         }
     }
     
