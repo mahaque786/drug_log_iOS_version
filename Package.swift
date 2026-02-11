@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "DrugLog",
     platforms: [
-        .iOS(.v15)
+        .iOS(.v16)
     ],
     products: [
         .library(
@@ -20,7 +20,10 @@ let package = Package(
         .target(
             name: "DrugLog",
             dependencies: [],
-            path: "DrugLog/DrugLog"),
+            path: "DrugLog/DrugLog",
+            resources: [
+                .process("Resources/medlist.json"),
+            ]),
         .testTarget(
             name: "DrugLogTests",
             dependencies: ["DrugLog"],

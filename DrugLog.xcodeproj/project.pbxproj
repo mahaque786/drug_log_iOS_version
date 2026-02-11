@@ -9,16 +9,32 @@
 /* Begin PBXBuildFile section */
 		DrugLogApp /* DrugLogApp.swift in Sources */ = {isa = PBXBuildFile; };
 		ContentView /* ContentView.swift in Sources */ = {isa = PBXBuildFile; };
-		DrugEntry /* DrugEntry.swift in Sources */ = {isa = PBXBuildFile; };
+		DoseLogBuildFile /* DoseLog.swift in Sources */ = {isa = PBXBuildFile; };
 		DrugLogStore /* DrugLogStore.swift in Sources */ = {isa = PBXBuildFile; };
+		MedicationBuildFile /* Medication.swift in Sources */ = {isa = PBXBuildFile; };
+		MedicationStoreBuildFile /* MedicationStore.swift in Sources */ = {isa = PBXBuildFile; };
+		SafetyCheckerBuildFile /* SafetyChecker.swift in Sources */ = {isa = PBXBuildFile; };
+		DoseLoggerViewBuildFile /* DoseLoggerView.swift in Sources */ = {isa = PBXBuildFile; };
+		MedicationListViewBuildFile /* MedicationListView.swift in Sources */ = {isa = PBXBuildFile; };
+		MedicationCardViewBuildFile /* MedicationCardView.swift in Sources */ = {isa = PBXBuildFile; };
+		MedlistJsonBuildFile /* medlist.json in Resources */ = {isa = PBXBuildFile; };
+		AssetsBuildFile /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DrugLogApp.app /* DrugLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrugLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DrugLogApp.swift /* DrugLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugLogApp.swift; sourceTree = "<group>"; };
 		ContentView.swift /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		DrugEntry.swift /* DrugEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugEntry.swift; sourceTree = "<group>"; };
+		DoseLog.swift /* DoseLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseLog.swift; sourceTree = "<group>"; };
 		DrugLogStore.swift /* DrugLogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugLogStore.swift; sourceTree = "<group>"; };
+		Medication.swift /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
+		MedicationStore.swift /* MedicationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationStore.swift; sourceTree = "<group>"; };
+		SafetyChecker.swift /* SafetyChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyChecker.swift; sourceTree = "<group>"; };
+		DoseLoggerView.swift /* DoseLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseLoggerView.swift; sourceTree = "<group>"; };
+		MedicationListView.swift /* MedicationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationListView.swift; sourceTree = "<group>"; };
+		MedicationCardView.swift /* MedicationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCardView.swift; sourceTree = "<group>"; };
+		medlist.json /* medlist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = medlist.json; sourceTree = "<group>"; };
+		Assets.xcassets /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		Info.plist /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,7 +58,7 @@
 		DrugLog = {
 			isa = PBXGroup;
 			children = (
-				DrugLog.swift,
+				DrugLogApp.swift,
 				Models,
 				Views,
 				Resources,
@@ -54,8 +70,11 @@
 		Models = {
 			isa = PBXGroup;
 			children = (
-				DrugEntry.swift,
+				Medication.swift,
+				DoseLog.swift,
 				DrugLogStore.swift,
+				MedicationStore.swift,
+				SafetyChecker.swift,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -64,6 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				ContentView.swift,
+				DoseLoggerView.swift,
+				MedicationListView.swift,
+				MedicationCardView.swift,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -71,6 +93,8 @@
 		Resources = {
 			isa = PBXGroup;
 			children = (
+				Assets.xcassets,
+				medlist.json,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -83,6 +107,7 @@
 			buildConfigurationList = DrugLogConfigList;
 			buildPhases = (
 				SourcesBuildPhase,
+				ResourcesBuildPhase,
 			);
 			buildRules = (
 			);
@@ -123,6 +148,18 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		ResourcesBuildPhase = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				MedlistJsonBuildFile,
+				AssetsBuildFile,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		SourcesBuildPhase = {
 			isa = PBXSourcesBuildPhase;
@@ -130,8 +167,14 @@
 			files = (
 				DrugLogApp,
 				ContentView,
-				DrugEntry,
+				DoseLogBuildFile,
 				DrugLogStore,
+				MedicationBuildFile,
+				MedicationStoreBuildFile,
+				SafetyCheckerBuildFile,
+				DoseLoggerViewBuildFile,
+				MedicationListViewBuildFile,
+				MedicationCardViewBuildFile,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -242,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -268,7 +311,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,7 +341,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

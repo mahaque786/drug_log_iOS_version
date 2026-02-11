@@ -2,68 +2,29 @@
 //  ContentView.swift
 //  DrugLog
 //
-//  Main view for the Drug Log application.
+//  Root view with tab-based navigation for dose logging and medication reference.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        NavigationView {
-            VStack {
-                Image(systemName: "pills.fill")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                    .font(.system(size: 60))
-                    .padding()
-                
-                Text("Drug Log")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                Text("Track your medications")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding(.top, 5)
-                
-                Spacer()
-                    .frame(height: 50)
-                
-                VStack(spacing: 20) {
-                    Text("Features:")
-                        .font(.headline)
-                    
-                    FeatureRow(icon: "clock.fill", title: "Track medication times")
-                    FeatureRow(icon: "bell.fill", title: "Set reminders")
-                    FeatureRow(icon: "chart.bar.fill", title: "View history")
-                    FeatureRow(icon: "heart.fill", title: "Monitor adherence")
-                }
-                .padding()
-                
-                Spacer()
-            }
-            .navigationTitle("Drug Log")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
+    @StateObject private var medicationStore = MedicationStore()
+    @StateObject private var logStore = DrugLogStore()
 
-struct FeatureRow: View {
-    let icon: String
-    let title: String
-    
     var body: some View {
-        HStack {
-            Image(systemName: icon)
-                .foregroundColor(.blue)
-                .frame(width: 30)
-            
-            Text(title)
-                .font(.body)
-            
-            Spacer()
+        TabView {
+            DoseLoggerView()
+                .tabItem {
+                    Label("Log Dose", systemImage: "pills.fill")
+                }
+
+            MedicationListView()
+                .tabItem {
+                    Label("Reference", systemImage: "book.fill")
+                }
         }
-        .padding(.horizontal)
+        .environmentObject(medicationStore)
+        .environmentObject(logStore)
     }
 }
 
